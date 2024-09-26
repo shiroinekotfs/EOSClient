@@ -9,11 +9,11 @@
     <LangVersion>11.0</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
-  <PropertyGroup />
-  <ItemGroup />
+  <PropertyGroup>
+    <BaseOutputPath>..\#Build\</BaseOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="QuestionLib">
-      <HintPath>C:\EOSClient_OnCampus_25.03.2024\QuestionLib.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\QuestionLib\QuestionLib.csproj" />
   </ItemGroup>
 </Project>

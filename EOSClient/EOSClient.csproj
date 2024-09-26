@@ -14,20 +14,15 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <RootNamespace />
+    <BaseOutputPath>..\#Build\</BaseOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
   </PropertyGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Reference Include="IRemote">
-      <HintPath>C:\EOSClient_OnCampus_25.03.2024\IRemote.dll</HintPath>
-    </Reference>
-    <Reference Include="NAudio">
-      <HintPath>C:\EOSClient_OnCampus_25.03.2024\NAudio.dll</HintPath>
-    </Reference>
-    <Reference Include="QuestionLib">
-      <HintPath>C:\EOSClient_OnCampus_25.03.2024\QuestionLib.dll</HintPath>
-    </Reference>
-    <Reference Include="EncryptData">
-      <HintPath>C:\EOSClient_OnCampus_25.03.2024\EncryptData.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\EncryptData\EncryptData.csproj" />
+    <ProjectReference Include="..\IRemote\IRemote.csproj" />
+    <ProjectReference Include="..\NAudio\NAudio.csproj" />
+    <ProjectReference Include="..\QuestionLib\QuestionLib.csproj" />
+    <ProjectReference Include="..\WebEye.Controls.WinForms.WebCameraControl\WebEye.Controls.WinForms.WebCameraControl.csproj" />
   </ItemGroup>
 </Project>

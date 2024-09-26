@@ -13,6 +13,8 @@
     <RootNamespace />
     <OutputType>Library</OutputType>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+    <BaseOutputPath>..\#Build\</BaseOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="QuestionLib.Entity.Chapter.hbm.xml" />

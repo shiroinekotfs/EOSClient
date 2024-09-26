@@ -12,6 +12,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace />
+    <BaseOutputPath>..\#Build\</BaseOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup />
