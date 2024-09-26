@@ -4,7 +4,7 @@
     <AssemblyName>WebEye.Controls.WinForms.WebCameraControl</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <UseWindowsForms>True</UseWindowsForms>
-    <TargetFramework>net20</TargetFramework>
+    <TargetFramework>net35</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>11.0</LangVersion>

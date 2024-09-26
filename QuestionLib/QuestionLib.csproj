@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>QuestionLib</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-    <TargetFramework>net20</TargetFramework>
+    <TargetFramework>net35</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>11.0</LangVersion>
@@ -11,6 +11,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace />
+    <OutputType>Library</OutputType>
+    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="QuestionLib.Entity.Chapter.hbm.xml" />
@@ -41,7 +43,9 @@
     <EmbeddedResource Include="QuestionLib.Entity.TestTemplateDetails.hbm.xml" LogicalName="QuestionLib.Entity.TestTemplateDetails.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="NHibernate" />
+    <Reference Include="NHibernate">
+      <HintPath>NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
   </ItemGroup>
 </Project>

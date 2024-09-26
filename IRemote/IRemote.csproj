@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>IRemote</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-    <TargetFramework>net20</TargetFramework>
+    <TargetFramework>net35</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>11.0</LangVersion>
