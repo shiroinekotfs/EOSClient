@@ -6,17 +6,14 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\#Build\Debug\net35\</OutputPath>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <RegisterForComInterop>false</RegisterForComInterop>
-  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <BaseOutputPath>..\#Build\</BaseOutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
