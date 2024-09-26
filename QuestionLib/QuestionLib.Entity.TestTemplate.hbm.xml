@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.0"
+    assembly="QuestionLib" namespace="QuestionLib.Entity">
+
+	<class
+        name="TestTemplate"
+        table="TestTemplate"
+        lazy="true">
+
+		<id name="TestTemplateID" column="TestTemplateID">
+			<generator class="native"/>
+		</id>
+		<property name="CID" column="CID" not-null="false" unique="false"/>
+		<property name="TestTemplateName" column="TestTemplateName" not-null="false" unique="false"/>
+		<property name="CreatedBy" column="CreatedBy" not-null="false" unique="false"/>
+		<property name="CreatedDate" column="CreatedDate" not-null="false" unique="false"/>	
+		<property name="DistinctWithLastTest" column="DistinctWithLastTest" not-null="false" unique="false"/>
+		<property name="Duration" column="Duration" not-null="false" unique="false"/>		
+		<property name="Note" column="Note" not-null="false" unique="false"/>
+	</class>
+
+</hibernate-mapping>
+
+

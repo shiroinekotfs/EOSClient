@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.0"
+    assembly="QuestionLib" namespace="QuestionLib.Entity">
+
+	<class
+        name="TestTemplateDetails"
+        table="TestTemplateDetails"
+        lazy="true">
+
+		<id name="TestTemplateDetailsID" column="TestTemplateDetailsID">
+			<generator class="native"/>
+		</id>
+		<property name="TestTemplateID" column="TestTemplateID" not-null="true" unique="false"/>
+		<property name="ChapterId" column="ChapterId" not-null="true" unique="false"/>		
+		<property name="QuestionType" column="QuestionType" not-null="true" unique="false"/>
+		<property name="NoQInTest" column="NoQInTest" not-null="true" unique="false"/>		
+
+	</class>
+
+</hibernate-mapping>
+
+

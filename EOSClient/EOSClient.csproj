@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <AssemblyName>EOSClient</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>True</UseWindowsForms>
+    <TargetFramework>net35</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="IRemote">
+      <HintPath>C:\EOSClient_OnCampus_25.03.2024\IRemote.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>C:\EOSClient_OnCampus_25.03.2024\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="QuestionLib">
+      <HintPath>C:\EOSClient_OnCampus_25.03.2024\QuestionLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EncryptData">
+      <HintPath>C:\EOSClient_OnCampus_25.03.2024\EncryptData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
