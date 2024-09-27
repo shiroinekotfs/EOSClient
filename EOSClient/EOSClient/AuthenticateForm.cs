@@ -1,18 +1,17 @@
 using System;
-using System.ComponentModel;
-using System.Configuration;
-using System.Drawing;
-using System.IO;
-using System.Reflection;
-using System.Security.Principal;
-using System.Windows.Forms;
-using EncryptData;
 using IRemote;
+using System.IO;
+using EncryptData;
 using NAudio.Wave;
 using QuestionLib;
+using System.Drawing;
+using System.Reflection;
+using System.Configuration;
+using System.Windows.Forms;
+using System.ComponentModel;
+using System.Security.Principal;
 
 namespace EOSClient;
-
 public class AuthenticateForm : Form
 {
 	private Button btnLogin;
@@ -247,14 +246,24 @@ public class AuthenticateForm : Form
 				si.IP = si.Public_IP;
 			}
 			string url = "tcp://" + si.IP + ":" + si.Port + "/Server";
+			EOSLogging.LoggingForURL(url); //%Logging for URL
+			
 			IRemoteServer remoteServer = (IRemoteServer)Activator.GetObject(typeof(IRemoteServer), url);
 			RegisterData registerData = new RegisterData();
+			EOSLogging.ExportRegisterData(registerData);  //%Logging for registered data
+            
 			registerData.Login = txtUser.Text;
 			registerData.Password = txtPassword.Text;
 			registerData.ExamCode = txtExamCode.Text;
-			registerData.Machine = Environment.MachineName.ToUpper();
-			EOSData eOSData = remoteServer.ConductExam(registerData);
-			if (eOSData.Status == RegisterStatus.EXAM_CODE_NOT_EXISTS)
+			EOSLogging.LoggingForUserField(registerData.Login, registerData.Password, registerData.ExamCode); //%Logging for user data
+
+            registerData.Machine = Environment.MachineName.ToUpper();
+			EOSLogging.LoggingMachineInfo(registerData.Machine); //%Logging for machine info
+
+            EOSData eOSData = remoteServer.ConductExam(registerData);
+			EOSLogging.ExportExamData("All", eOSData); //%Logging for Exam data
+
+            if (eOSData.Status == RegisterStatus.EXAM_CODE_NOT_EXISTS)
 			{
 				MessageBox.Show("Exam code is not available!", "Start exam", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 			}
@@ -284,15 +293,19 @@ public class AuthenticateForm : Form
 			}
 			if (eOSData.Status == RegisterStatus.NEW || eOSData.Status == RegisterStatus.RE_ASSIGN)
 			{
-				Hide();
-				eOSData.GUI = GZipHelper.DeCompress(eOSData.GUI, eOSData.OriginSize);
+				//Hide();
+				EOSLogging.ExportGUIData(eOSData.GUI); //%Logging for GUI
+
+                eOSData.GUI = GZipHelper.DeCompress(eOSData.GUI, eOSData.OriginSize);
 				Assembly assembly = Assembly.Load(eOSData.GUI);
 				Type type = assembly.GetType("ExamClient.frmEnglishExamClient");
 				Form form = (Form)Activator.CreateInstance(type);
 				IExamclient examclient = (IExamclient)form;
 				eOSData.GUI = null;
 				eOSData.ServerInfomation = si;
-				eOSData.RegData = registerData;
+				EOSLogging.ExportServerInfo(eOSData.ServerInfomation); //%Logging for Server Info
+
+                eOSData.RegData = registerData;
 				examclient.SetExamData(eOSData);
 				form.Show();
 			}
@@ -300,6 +313,7 @@ public class AuthenticateForm : Form
 		catch (Exception ex)
 		{
 			MessageBox.Show(ex.ToString());
+			EOSLogging.LoggingForError(ex.ToString()); //%Logging for exception
 			MessageBox.Show("Start Exam Error:\nCannot connect to the EOS server!\n", "Connecting...", MessageBoxButtons.OK, MessageBoxIcon.Hand);
 		}
 	}

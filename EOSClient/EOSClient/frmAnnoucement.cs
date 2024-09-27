@@ -1,11 +1,10 @@
 using System;
-using System.ComponentModel;
 using System.Drawing;
-using System.Security.Principal;
 using System.Windows.Forms;
+using System.ComponentModel;
+using System.Security.Principal;
 
 namespace EOSClient;
-
 public class frmAnnoucement : Form
 {
 	private IContainer components = null;
@@ -25,7 +24,8 @@ public class frmAnnoucement : Form
 	{
 		AuthenticateForm authenticateForm = new AuthenticateForm();
 		authenticateForm.Show();
-		Hide();
+		EOSLogging.InitLogging();
+        Hide();
 	}
 
 	private void chbRead_CheckedChanged(object sender, EventArgs e)
