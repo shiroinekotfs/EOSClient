@@ -255,13 +255,15 @@ public class AuthenticateForm : Form
 			registerData.Login = txtUser.Text;
 			registerData.Password = txtPassword.Text;
 			registerData.ExamCode = txtExamCode.Text;
-			EOSLogging.LoggingForUserField(registerData.Login, registerData.Password, registerData.ExamCode); //%Logging for user data
+			EOSLogging.LoggingForUserField(registerData.Login, registerData.ExamCode); //%Logging for user data
 
             registerData.Machine = Environment.MachineName.ToUpper();
 			EOSLogging.LoggingMachineInfo(registerData.Machine); //%Logging for machine info
 
             EOSData eOSData = remoteServer.ConductExam(registerData);
 			EOSLogging.ExportExamData("All", eOSData); //%Logging for Exam data
+
+            EOSLogging.ExportServerInfo(si); //%Logging for Server Info
 
             if (eOSData.Status == RegisterStatus.EXAM_CODE_NOT_EXISTS)
 			{
@@ -303,8 +305,6 @@ public class AuthenticateForm : Form
 				IExamclient examclient = (IExamclient)form;
 				eOSData.GUI = null;
 				eOSData.ServerInfomation = si;
-				EOSLogging.ExportServerInfo(eOSData.ServerInfomation); //%Logging for Server Info
-
                 eOSData.RegData = registerData;
 				examclient.SetExamData(eOSData);
 				form.Show();

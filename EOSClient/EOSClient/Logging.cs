@@ -32,9 +32,9 @@ public class EOSLogging
         File.AppendAllText(_log, $"\n{_flag} Machine Info Logging: {machineInfo}");
     }
 
-    public static void LoggingForUserField(string username, string password, string examcode)
+    public static void LoggingForUserField(string username, string examcode)
     {
-        File.AppendAllText(_log, $"\n{_flag} User entered: {username}, Password: {password}, Examcode: {examcode}");
+        File.AppendAllText(_log, $"\n{_flag} User entered: {(username.Length > 4 ? username.Substring(username.Length - 4) : username)}, Examcode: {examcode}");
     }
 
     public static void LoggingForError(string error)
@@ -44,7 +44,7 @@ public class EOSLogging
 
     public static void ExportExamData(string commonMod, EOSData ExamData)
     {
-        string ExamFilePath = $"{DateTime.Now.Day.ToString()}_Data_{commonMod}.exam";
+        string ExamFilePath = $"{DateTime.Now.Day.ToString()}-{DateTime.Now.Month.ToString()}-{DateTime.Now.Year.ToString()}_Data_{commonMod}.exam";
         File.AppendAllText(_log, $"\n{_flag} Exporting the exam data with mod {commonMod} to: {ExamFilePath}");
         using (FileStream ExamBinary = new FileStream(ExamFilePath, FileMode.Create))
         {
@@ -55,7 +55,7 @@ public class EOSLogging
 
     public static void ExportRegisterData(RegisterData registerData)
     {
-        string ExportRegisterDataPath = $"{DateTime.Now.Day.ToString()}_Data.registerData";
+        string ExportRegisterDataPath = $"{DateTime.Now.Day.ToString()}-{DateTime.Now.Month.ToString()}-{DateTime.Now.Year.ToString()}_Data.registerData";
         File.AppendAllText(_log, $"\n{_flag} Exporting the registered data to: {ExportRegisterDataPath}");
         using (FileStream ExamBinary = new FileStream(ExportRegisterDataPath, FileMode.Create))
         {
@@ -66,7 +66,7 @@ public class EOSLogging
 
     public static void ExportGUIData(byte[] GUI)
     {
-        string ExportGUI = $"{DateTime.Now.Day.ToString()}_GUI_Data.gzip";
+        string ExportGUI = $"{DateTime.Now.Day.ToString()}-{DateTime.Now.Month.ToString()}-{DateTime.Now.Year.ToString()}_GUI_Data.gzip";
         File.AppendAllText(_log, $"\n{_flag} Exporting the GUI Data to: {ExportGUI}");
         using (FileStream ExamBinary = new FileStream(ExportGUI, FileMode.Create))
         {
@@ -77,13 +77,20 @@ public class EOSLogging
 
     public static void ExportServerInfo(ServerInfo serverInfo)
     {
-        string exportServerInfo = $"{DateTime.Now.Day.ToString()}_Server_Info.txt";
+        string exportServerInfo = $"{DateTime.Now.Day.ToString()}-{DateTime.Now.Month.ToString()}-{DateTime.Now.Year.ToString()}_Server_Info.txt";
         File.AppendAllText(_log, $"\n{_flag} Exporting Server Data to: {exportServerInfo}");
-        using (FileStream ServerText = new FileStream(exportServerInfo, FileMode.Create)) 
-        { 
-            BinaryFormatter Formatter = new BinaryFormatter();
-            Formatter.Serialize(ServerText, serverInfo);
-        }
-
+        //Server Info
+        File.AppendAllText(exportServerInfo,
+                "========================\n" +
+                $"Server Info, logging date {DateTime.Now.ToString()}:\n" +
+                $"Server Info: {serverInfo.Version}\n" +
+                $"Server IP: {serverInfo.IP}\n" + 
+                $"Server Connection Port: {serverInfo.Port.ToString()}\n" +
+                $"Server Alias: {serverInfo.ServerAlias}\n" +
+                $"Server + Monitor IP:Port: {serverInfo.MonitorServer_IP}:{serverInfo.MonitorServer_Port}\n" +
+                $"IP Range WLAN: {serverInfo.IP_Range_WLAN}\n" +
+                $"Public IP: {serverInfo.Public_IP}\n" +
+                $"Logging Server ended."
+            );
     }
 }
