@@ -1,3 +1,8 @@
+> Warning:
+>
+> + This is an under-development build. DO NOT USE IT in real tests. YOU KNOW WHAT WILL HAPPEN THEN!
+> + You use, your responsibility. I just wanted to let you know that I won't be responsible for any damages you have made. 
+
 # EOSClient
 
 Note from developers:
