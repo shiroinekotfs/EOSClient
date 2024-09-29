@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.0"
+    assembly="QuestionLib" namespace="QuestionLib.Entity">
+
+    <class
+        name="LO"
+        table="LO"
+        lazy="true">
+
+        <id name="LOID" column="LOID">
+            <generator class="native"/>
+        </id>
+        <property name="CID" column="CID" not-null="true" unique="false"/>
+        <property name="LO_Name" column="LO_Name" not-null="true" unique="false"/>
+        <property name="LO_Desc" column="LO_Desc" not-null="true" unique="false"/>
+        <property name="Dec_No" column="Dec_No" not-null="false" unique="false"/>
+
+    </class>
+
+</hibernate-mapping>
+
+
+

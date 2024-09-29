@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>QuestionLib</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net35</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace />
+    <OutputType>Library</OutputType>
+    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+    <BaseOutputPath>..\#Build\</BaseOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="QuestionLib.Entity.Chapter.hbm.xml" />
+    <None Remove="QuestionLib.Entity.Course.hbm.xml" />
+    <None Remove="QuestionLib.Entity.MachQuestion.hbm.xml" />
+    <None Remove="QuestionLib.Entity.Passage.hbm.xml" />
+    <None Remove="QuestionLib.Entity.Question.hbm.xml" />
+    <None Remove="QuestionLib.Entity.QuestionAnswer.hbm.xml" />
+    <None Remove="QuestionLib.Entity.Test.hbm.xml" />
+    <None Remove="QuestionLib.Entity.EssayQuestion.hbm.xml" />
+    <None Remove="QuestionLib.Entity.Audio.hbm.xml" />
+    <None Remove="QuestionLib.Entity.LO.hbm.xml" />
+    <None Remove="QuestionLib.Entity.QuestionLO.hbm.xml" />
+    <None Remove="QuestionLib.Entity.TestTemplate.hbm.xml" />
+    <None Remove="QuestionLib.Entity.TestTemplateDetails.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.Chapter.hbm.xml" LogicalName="QuestionLib.Entity.Chapter.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.Course.hbm.xml" LogicalName="QuestionLib.Entity.Course.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.MachQuestion.hbm.xml" LogicalName="QuestionLib.Entity.MachQuestion.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.Passage.hbm.xml" LogicalName="QuestionLib.Entity.Passage.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.Question.hbm.xml" LogicalName="QuestionLib.Entity.Question.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.QuestionAnswer.hbm.xml" LogicalName="QuestionLib.Entity.QuestionAnswer.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.Test.hbm.xml" LogicalName="QuestionLib.Entity.Test.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.EssayQuestion.hbm.xml" LogicalName="QuestionLib.Entity.EssayQuestion.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.Audio.hbm.xml" LogicalName="QuestionLib.Entity.Audio.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.LO.hbm.xml" LogicalName="QuestionLib.Entity.LO.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.QuestionLO.hbm.xml" LogicalName="QuestionLib.Entity.QuestionLO.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.TestTemplate.hbm.xml" LogicalName="QuestionLib.Entity.TestTemplate.hbm.xml" />
+    <EmbeddedResource Include="QuestionLib.Entity.TestTemplateDetails.hbm.xml" LogicalName="QuestionLib.Entity.TestTemplateDetails.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate">
+      <HintPath>NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <AssemblyName>EOSClient</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>True</UseWindowsForms>
+    <TargetFramework>net35</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RootNamespace />
+    <BaseOutputPath>..\#Build\</BaseOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EncryptData\EncryptData.csproj" />
+    <ProjectReference Include="..\IRemote\IRemote.csproj" />
+    <ProjectReference Include="..\NAudio\NAudio.csproj" />
+    <ProjectReference Include="..\QuestionLib\QuestionLib.csproj" />
+    <ProjectReference Include="..\WebEye.Controls.WinForms.WebCameraControl\WebEye.Controls.WinForms.WebCameraControl.csproj" />
+  </ItemGroup>
+</Project>
